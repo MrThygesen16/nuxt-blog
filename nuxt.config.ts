@@ -1,11 +1,11 @@
-export default defineNuxtConfig({
+export default {
   extends: 'content-wind',
   // content: {
   //   documentDriven: true
   // },
-  // components: true,
+  components: true,
   // ssr: false,
+  target: 'static',
 
 
-
-})
+}
