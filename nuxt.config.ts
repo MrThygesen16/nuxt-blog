@@ -26,7 +26,7 @@ export default {
         content: "Michael Thygesen's personal website"
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/public/favicon.ico' }]
   },
   
   server: {
