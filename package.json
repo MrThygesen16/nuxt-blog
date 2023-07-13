@@ -4,8 +4,6 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
-    "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
-    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
     "deploy": "push-dir --dir=dist --branch=gh-pages"
