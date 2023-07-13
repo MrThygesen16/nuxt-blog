@@ -26,7 +26,7 @@ export default {
         content: "Michael Thygesen's personal website"
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/public/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: 'public/favicon.ico' }]
   },
   
   server: {
@@ -36,23 +36,23 @@ export default {
 
   sitemap: {
     hostname: 'https://mrthygesen16.github.io',
-    routes: async () => {
-      const { $content } = require('@nuxt/content')
+  //   routes: async () => {
+  //     const { $content } = require('@nuxt/content')
 
-      const posts = await $content({ deep: true })
-        .only(['path', 'draft'])
-        .where({ draft: { $ne: true } })
-        .fetch()
-      const projects = await $content('projects').only(['path']).fetch()
+  //     const posts = await $content({ deep: true })
+  //       .only(['path', 'draft'])
+  //       .where({ draft: { $ne: true } })
+  //       .fetch()
+  //     const projects = await $content('projects').only(['path']).fetch()
 
-      return []
-        .concat(
-          ...posts
-            .filter((x: { path: string }) => !x.path.startsWith('/projects/'))
-            .map((w: { path: any }) => w.path)
-        )
-        .concat(...projects.map((p: { path: any }) => p.path))
-    }
+  //     return []
+  //       .concat(
+  //         ...posts
+  //           .filter((x: { path: string }) => !x.path.startsWith('/projects/'))
+  //           .map((w: { path: any }) => w.path)
+  //       )
+  //       .concat(...projects.map((p: { path: any }) => p.path))
+  //   }
   },
 
 }
