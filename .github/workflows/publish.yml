@@ -31,5 +31,5 @@ jobs:
       - name: deploy
         uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ./dist
