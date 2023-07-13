@@ -46,4 +46,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Nuxt export the statically generated files in the dist directory by default
           publish_dir: ./${{env.working-directory}}/dist
-view rawdocs.yml hosted with ❤ by GitHub
