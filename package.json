@@ -6,7 +6,9 @@
     "build": "nuxi build",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
-    "deploy": "push-dir --dir=dist --branch=gh-pages"
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "nuxi lint:js",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "content-wind": "latest",
