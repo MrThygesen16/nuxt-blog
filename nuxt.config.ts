@@ -1,5 +1,7 @@
 module.exports = {
-    
+  router: {
+    base: '/nuxt-blog/'
+  },
   env: {
     baseUrl: process.env.BASE_URL || 'https://https://mrthygesen16.github.io/'
   },
