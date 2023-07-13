@@ -1,48 +1,35 @@
+name: github pages
 
-name: docs
-
-# define the trigger 
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
-  docs:
-    runs-on: ${{ matrix.os }}
-    env:
-      # We used "docs" as directory name for our documentation, we will be referencing this later
-      working-directory: docs
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
-
+  deploy:
+    runs-on: ubuntu-latest
     steps:
-      # Check out master branch
-      - name: Checkout
-        uses: actions/checkout@master
+      - uses: actions/checkout@v2
 
-      # Downloads, configures and caches Node.js
-      - name: Setup node env
-        uses: actions/setup-node@v2.1.4
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node }}
+          node-version: "18.14.2"
 
-      # Install all dependencies needed to build our documentation
-      - name: Install dependencies
-        # Referencing our docs directory here
-        working-directory: ${{env.working-directory}}
-        run: node
-
-      # The generate command is used to invoke Nuxt static site generation
-      - name: Generate
-        working-directory: ${{env.working-directory}}
-        run: node run generate
-
-      # Pushes the files to a branch called "gh-pages" that will be used as deployment branch
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
-          # This token is automatically invoked
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Nuxt export the statically generated files in the dist directory by default
-          publish_dir: ./${{env.working-directory}}/dist
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm install
+      - run: npm run generate:gh-pages
+
+      - name: deploy
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
