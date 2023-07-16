@@ -1,0 +1,1 @@
+import o from"./ContentSlot.a1981886.js";import{d as s,b as n,c as a,g as r,e as c,t as l}from"./entry.35758a23.js";const p={class:"mt-5"},d={class:"text-xs mt-2"},f=s({__name:"Blog-Container",props:{date:{}},setup(_){return(t,i)=>{const e=o;return n(),a("div",p,[r(e,{use:t.$slots.default,unwrap:"p"},null,8,["use"]),c("div",d,l(t.date),1)])}}});export{f as default};
