@@ -36,6 +36,9 @@ export default {
 
   sitemap: {
     hostname: 'https://mrthygesen16.github.io',
+
+    // https://briancaffey.github.io/2021/10/02/how-i-write-and-share-technical-software-development-articles-in-2021/
+    // the god, the king, the legend :pray-emoji:
     routes: async () => {
       const { $content } = require('@nuxt/content')
 
